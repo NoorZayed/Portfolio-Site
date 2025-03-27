@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Zayed | Portfolio</title>
+    <link rel="stylesheet" href="dist/main.css">
+</head>
+<body>
+    <header class="header">
+        <img src="src/img/NuR.png" alt="logo" class="logo" style="width: 80px !important; height: 80px !important; border-radius: 50% !important;">
+        <button class="header__menu-btn" aria-label="Toggle navigation">&#9776;</button>
+
+        <nav class="header__nav" role="navigation" aria-label="Main Navigation">
+            <a href="#projects" class="header__nav-item">Projects</a>
+            <a href="#skills" class="header__nav-item">Skills</a>
+            <a href="#resume" class="header__nav-item">Resume</a>
+            <a href="#contact" class="header__nav-item">Contact</a>
+        </nav>
+        
+    </header>
+
+    <main>
+        <section class="banner">
+            <img src="src/img/ana.jpg" alt="Noor Zayed's profile picture" class="banner__image">
+            <div class="banner__content">
+                <h1>Noor Zayed | Web Developer</h1>
+                <p>Passionate Computer Science student with expertise in web development, problem-solving, and software engineering.</p>
+                <div class="banner__buttons">
+                    <a href="#projects" class="banner__btn banner__btn--primary">View Projects</a>
+                    <a href="#contact" class="banner__btn banner__btn--secondary">Contact Me</a>
+                </div>
+            </div>
+        </section>
+      
+        <section id="projects" class="projects">
+            <h2>Latest Projects</h2>
+            <div class="projects__grid">
+                <div class="project-item">
+                    <div class="project-images">
+                        <img src="src/img/Car Rental Website.jpg" alt="Project 1 Screenshot 1">
+                    </div>
+                    <div class="project-content">  <h3>Car Rental Website</h3>
+                        <p>Fully functional car rental system with a PHP & MySQL backend.</p>
+                        <a href="https://github.com/NoorZayed/-Car-Rental-Agency" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-images">
+                        <img src="src/img/Car-Rental-Agency.jpg" alt="Project 1 Screenshot 2">
+                    </div>
+                    <div class="project-content">  <h3>Android Car Rental App</h3>
+                        <p>Android-based car rental app using MySQL and Firebase.</p>
+                        <a href="https://github.com/NoorZayed/Auto-Cargo-rental-system" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-images">
+                        <img src="src/img/Car-Rental-Agency.jpg" alt="Project 1 Screenshot 2">
+                    </div>
+                    <div class="project-content">  <h3>Android Car Rental App</h3>
+                        <p>Android-based car rental app using MySQL and Firebase.</p>
+                        <a href="https://github.com/NoorZayed/Auto-Cargo-rental-system" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                </div>
+            <a href="https://github.com/NoorZayed?tab=repositories" class="projects__btn">View More Projects</a>
+        </section>
+            
+
+        <section id="skills" class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Java, Python, C, .NET, Angular, Android Development</li>
+                <li>HTML, CSS, JavaScript, Figma</li>
+                <li>MySQL, Firebase</li>
+                <li>Linux, Cloud Computing, Selenium, JUnit</li>
+            </ul>
+        </section>
+
+        <section id="resume" class="resume">
+            <h2>Resume</h2>
+            <a href="Resume.pdf" download class="resume__btn">Download Resume</a>
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:noorzayed204@gmail.com">noorzayed204@gmail.com</a></p>
+            <p>Phone: +970 598132302</p>
+            <p><a href="https://www.linkedin.com/in/noor-zayed-3a165b302/" target="_blank">LinkedIn</a> | <a href="https://github.com/NoorZayed" target="_blank">GitHub</a></p>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Noor Zayed 2025</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const menuBtn = document.querySelector(".header__menu-btn");
+          const header = document.querySelector(".header");
+      
+          menuBtn.addEventListener("click", function() {
+            header.classList.toggle("menu-open");
+          });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const projects = document.querySelectorAll(".project-item");
+
+    projects.forEach((project) => {
+        project.classList.add("visible");
+    });
+});
+
+const projectItems = document.querySelectorAll(".project-item");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.2 });
+
+projectItems.forEach(item => observer.observe(item));
+
+    window.addEventListener("scroll", function () {
+    let header = document.querySelector(".header");
+    if (window.scrollY > 50) {
+        header.classList.add("header--shrink");
+    } else {
+        header.classList.remove("header--shrink");
+    }
+});
+// });
+
+
+      </script>
+      
+</body>
+</html>

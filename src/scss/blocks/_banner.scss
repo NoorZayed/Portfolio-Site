@@ -1,0 +1,150 @@
+// /* src/scss/blocks/_banner.scss */
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use "sass:color";
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.banner {
+    animation: fadeIn 1s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    background: linear-gradient(45deg, #eca1c0, #e8acb6, #e9a0bf);
+    background-size: 200% 200%;
+    animation: gradientAnimation 6s ease infinite;
+
+    @include responsive(mobile) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    &__image {
+        width: min(100%, 500px);
+        height: 500px;
+        object-fit: cover;
+        border-radius: 50%;
+        background-color: #ddd;
+        
+        @include responsive(mobile) {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    &__content {
+        width: calc(100% - 100px); 
+        display: flex;
+        flex-direction: column;
+        justify-content: center; // Changed from space-between to center
+        align-items: center; // Added to center horizontally
+        background-color: #bb6da1;
+        padding: 20px;
+
+        @include responsive(mobile) {
+            width: 100%;
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 3em; // Increased font size for heading
+            margin-bottom: 15px; // Increased margin
+            text-align: center; // Center heading text
+        }
+
+        p {
+            font-size: 1.2em; // Increased font size for paragraph
+            line-height: 1.6; // Adjusted line height for readability
+            margin-bottom: 30px; // Increased margin
+            text-align: center; // Center paragraph text
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .banner__btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        outline: none;
+        min-width: 24px;
+        min-height: 24px;
+        line-height: 24px;
+
+        &:hover {
+            filter: brightness(90%);
+        }
+    
+        &:focus {
+            outline: 3px solid #ffcc00; // Add a visible focus outline
+            box-shadow: 0 0 5px #ffcc00;
+        }
+
+        &--primary {
+          background-color: color.scale($primary-color, $lightness: -10%);
+            &:hover {
+                background-color: color.scale($primary-color, $lightness: -60%);
+            }
+            &:focus {
+                outline: 3px solid #ffcc00;
+            }
+            @include responsive(mobile) {
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+            }
+        }
+
+        &--secondary {
+            background-color: $secondary-color;
+            &:hover {
+                background-color: color.scale($secondary-color, $lightness: -50%);
+            }
+            &:focus {
+                outline: 3px solid #ffcc00;
+            }
+            @include responsive(mobile) {
+                flex-direction: column;
+                gap: 5px;
+                width: 100%;
+            }
+        }
+        @include responsive(mobile) {
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+        }
+    }
+    .test {
+        @include responsive(mobile) {
+          color: red;
+        }
+      }
+      
+}

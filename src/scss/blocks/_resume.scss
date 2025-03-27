@@ -1,0 +1,40 @@
+/* src/scss/blocks/_resume.scss */
+@use '../utils/variables' as *;
+@use "sass:color";
+
+.resume {
+    padding: 50px 20px;
+    text-align: center;
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: $secondary-color; // Use secondary color for heading
+    }
+
+    &__btn {
+        display: inline-block;
+        background-color: $contrast-color; // Use contrast color for button background
+        color: $secondary-color; // Use secondary color for button text
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: color.scale($contrast-color, $lightness: -10%);
+        }
+    }
+    .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 10px;
+        background: #000;
+        color: #95517ed0;
+        padding: 10px;
+        z-index: 100;
+        &:focus {
+            top: 10px;
+        }
+    }
+}

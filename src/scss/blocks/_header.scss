@@ -1,0 +1,92 @@
+// src/scss/blocks/_header.scss
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use "sass:color";
+
+// Placeholder styles for the header block
+.header {
+  background-color: $primary-color;
+  padding: 20px;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: row; // Moves logo to the right
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+
+
+//   &__logo {
+//     width: 50px !important;
+//     height: 50px !important;
+//     border-radius: 50% !important;
+// }
+
+  &__nav { 
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    transition: height 0.3s ease-in-out;
+    height: 80px;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      
+      &:hover, &:focus {
+        background-color: color.scale($primary-color, $lightness: -15%);
+        outline: 2px solid $focus-outline;
+      }
+    }
+  
+  &--shrink {
+    height: 50px;
+    padding: 10px;
+    background-color: color.scale($primary-color, $lightness: -10%);
+    
+  }
+
+  @include responsive(mobile) {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: $primary-color;
+    text-align: center;
+    padding: 10px 0;
+}
+
+&__menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: $text-color;
+
+  @include responsive(mobile) {
+      display: block;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+  }
+}
+}
+}
+@media (min-width: 769px) {
+.header__menu-btn {
+  display: none !important;
+}
+}
+.backdrop {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+}

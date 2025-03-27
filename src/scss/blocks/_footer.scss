@@ -1,0 +1,15 @@
+// src/scss/blocks/_footer.scss
+@use '../utils/variables' as *;
+
+// Placeholder styles for the footer block
+.footer {
+    background-color: $secondary-color;
+    color: $text-color;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+  
+    p {
+      margin: 0;
+    }
+  }

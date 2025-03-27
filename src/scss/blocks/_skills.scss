@@ -1,0 +1,29 @@
+/* src/scss/blocks/_skills.scss */
+@use '../utils/variables' as *;
+
+.skills {
+    padding: 50px 20px;
+    text-align: center;
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: $secondary-color; // Use secondary color for heading
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: $secondary-color; // Use secondary color for list items
+        }
+    }
+
+    
+}
